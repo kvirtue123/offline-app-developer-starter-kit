@@ -20,6 +20,79 @@
                 "components": [
                   {
                     "definition": "mcf/card",
+                    "name": "timed_card",
+                    "properties": {
+                      "label": "Today's Visits",
+                      "titleColor": "#EB7092"
+                    },
+"regions": {
+                      "components": {
+                        "name": "components",
+                        "components": [
+                          {
+                            "definition": "mcf/timedList",
+                            "name": "scheduled_object_list",
+                            "properties": {
+                              "label": "Scheduled Object List",
+                              "size": 3,
+                              "objectApiName": "Store_Visit__c",
+                              "fieldMap": {
+                                "startTime": "Start_Date_Time__c",
+                                "endTime": "End_Date_Time__c",
+                                "mainField": "Name",
+                                "subField1": "Store_Display_Name__c",
+                                "subField2": "Visit_Status__c"
+                              },
+"fields": {
+                                "Name":"StringValue",
+                                "Start_Date_Time__c":"DateTimeValue",
+                                "End_Date_Time__c":"DateTimeValue",
+                                "Store_Display_Name__c":"StringValue",
+                                "Visit_Status__c":"PicklistValue",
+                                "Shipping_Address_Street__s": "StringValue",
+                                "Shipping_Address_ShippingCity__s": "StringValue",
+                                "Shipping_Address_ShippingState__s": "StringValue",
+                                "Shipping_Address_ShippingPostalCode__s": "StringValue",
+                                "Shipping_Address_ShippingCountry__s": "StringValue"
+                              },
+"orderBy": [
+                                {"Start_Date_Time__c":  "ASC"}
+                              ],
+                              "swipeActions":{
+                                "map": [
+                                    {
+                                        "label": "Shipping Address",
+                                        "value": {
+                                            "street": "Shipping_Address_ShippingStreet__s",
+                                            "city": "Shipping_Address_ShippingCity__s",
+                                            "state": "Shipping_Address_ShippingState__s",
+                                            "postalCode": "Shipping_Address_ShippingPostalCode__s",
+                                            "country": "Shipping_Address_ShippingCountry__s"
+                                         }
+                                    }
+                                ]
+                              }
+                            },
+"regions": {
+                              "components": {
+                                "name": "components",
+                                "components": [
+                                  {
+                                    "definition": "mcf/timedRow",
+                                    "name": "simple_scheduled_object_row",
+                                    "properties": {},
+                                    "regions": {}
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "definition": "mcf/card",
                     "name": "recently_viewed_contacts",
                     "properties": {
                       "label": "Recently Viewed Contacts"
